@@ -1,4 +1,4 @@
-class Numeric:
+class StrAndRepr:
     def __str__(self):
         ret = f'{type(self).__name__}('
         for i, (k, v) in enumerate(self.__dict__.items()):
@@ -8,6 +8,8 @@ class Numeric:
         return ret + ')'
     def __repr__(self):
         return str(self)
+
+class Numeric(StrAndRepr):
     def __add__(self, x):
         return self - (-x)
     def __radd__(self, x):
