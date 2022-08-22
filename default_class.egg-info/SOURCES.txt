@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+default_class/__init__.py
+default_class/dc.py
+default_class.egg-info/PKG-INFO
+default_class.egg-info/SOURCES.txt
+default_class.egg-info/dependency_links.txt
+default_class.egg-info/top_level.txt
