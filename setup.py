@@ -1,17 +1,17 @@
 from setuptools import setup, find_packages
 
-long_description = 'Tools for nested lists!'
+long_description = 'Default classes - read the docs at https://www.github.com/nayakrujul/default-class'
 
 setup(
-  name = 'nestedtools',
-  version = '1.1',
+  name = 'default-class',
+  version = '0.1',
   license='Apache',
-  description = 'Tools for nested lists!',
+  description = 'Default classes',
   author = 'Rujul Nayak',
   author_email = 'rujulnayak@outlook.com',
-  url = 'https://github.com/nayakrujul/nested-tools',
-  download_url = 'https://github.com/nayakrujul/nested-tools/archive/refs/tags/v_01.tar.gz',
-  keywords = ['nested', 'list', 'tools'],
+  url = 'https://github.com/nayakrujul/default-class',
+  download_url = 'https://github.com/nayakrujul/default-class/archive/refs/tags/v_01.tar.gz',
+  keywords = ['class', 'default'],
   install_requires=[
       ],
   classifiers=[
