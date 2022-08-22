@@ -16,7 +16,7 @@ The StrAndRepr class gives better `__str__` and `__repr__` methods:
 ```python
 from default_class import StrAndRepr
 
-class Foo:
+class Foo(StrAndRepr):
     def __init__(self, a, b, c):
         self.a = a
         self.b = b
