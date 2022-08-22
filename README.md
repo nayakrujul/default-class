@@ -74,22 +74,24 @@ Number(n=-123)
 
 #### The `Numeric` class can fill in these magic methods:
 
-* `__str__` (no dependencies)
-* `__repr__` (needs `__str__`)
-* `__add__` (needs `__sub__` and `__neg__`)
-* `__radd__` (needs `__add__`)
-* `__sub__` (needs `__neg__` and `__rsub__`)
-* `__rsub__` (needs `__neg__` and `__sub__`)
-* `__mul__` (needs `__rmul__`)
-* `__rmul__` (needs `__mul__`)
-* `__truediv__` (needs `__rtruediv__`)
-* `__floordiv__` (needs `__int__` and `__truediv__`)
-* `__rfloordiv__` (needs `__int__` and `__rtruediv__`)
-* `__mod__` (needs `__sub__`, `__floordiv__` and `__mul__`)
-* `__rmod__` (needs `__rsub__`, `__rfloordiv__` and `__rmul__`)
-* `__divmod__` (needs `__floordiv__` and `__mod__`)
-* `__rdivmod__` (needs `__rfloordiv__` and `__rmod__`)
-* `__pos__` (no dependencies)
-* `__neg__` (needs `__sub__`)
+|Method|Dependencies|
+|-|-|
+|`__str__`|None|
+|`__repr__`|`__str__`|
+|`__add__`|`__sub__`, `__neg__`|
+|`__radd__`|`__add__`|
+|`__sub__`|`__neg__`, `__rsub__`|
+|`__rsub__`|`__neg__`, `__sub__`|
+|`__mul__`|`__rmul__`|
+|`__rmul__`|`__mul__`|
+|`__truediv__`|`__rtruediv__`|
+|`__floordiv__`|`__int__`, `__truediv__`|
+|`__rfloordiv__`|`__int__`, `__rtruediv__`|
+|`__mod__`|`__sub__`, `__floordiv__`, `__mul__`|
+|`__rmod__`|`__rsub__`, `__rfloordiv__`, `__rmul__`|
+|`__divmod__`|`__floordiv__`, `__mod__`|
+|`__rdivmod__`|`__rfloordiv__`, `__rmod__`|
+|`__pos__`|None|
+|`__neg__`|`__sub__`|
 
-#### Note: if not enough requirements are met, this could result in a `RecursionError`
+#### Note: if not enough methods are filled in already, this could result in a `RecursionError`
