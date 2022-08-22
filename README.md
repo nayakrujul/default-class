@@ -9,7 +9,32 @@ $ pip install default-class
 
 ## Usage
 
-#### The `Numeric` class in the `default_class` library uses arithmatic rules to define magic methods.
+### default_class.StrAndRepr
+
+The StrAndRepr class gives better `__str__` and `__repr__` methods:
+
+```python
+from default_class import StrAndRepr
+
+class Foo:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+        
+obj = Foo(1, 'a', True)
+print(obj)
+```
+
+Output:
+
+```python
+Foo(a=1, b='a', c=True)
+```
+
+### default_class.Numeric
+
+**The `Numeric` class in the `default_class` library uses arithmatic rules to define magic methods.**
 
 See this example:
 
@@ -72,7 +97,7 @@ Number(n=123)
 Number(n=-123)
 ```
 
-#### The `Numeric` class can fill in these magic methods:
+**The `Numeric` class can fill in these magic methods:**
 
 |Method|Dependencies|
 |-|-|
@@ -94,4 +119,6 @@ Number(n=-123)
 |`__pos__`|None|
 |`__neg__`|`__sub__`|
 
-#### Note: if not enough methods are filled in already, this could result in a `RecursionError`
+**Warning: if not enough methods are filled in already, this could result in a `RecursionError`**
+
+Note: `Numeric` inherits `__str__` and `__repr__` from `default_class.StrAndRepr`
