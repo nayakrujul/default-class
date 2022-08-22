@@ -1,1 +1,1 @@
-from default_class.dc import Numeric
+from default_class.dc import Numeric, StrAndRepr
