@@ -4,7 +4,7 @@ long_description = 'Default classes - read the docs at https://www.github.com/na
 
 setup(
   name = 'default-class',
-  version = '0.2',
+  version = '1.0',
   license='Apache',
   description = 'Default classes',
   author = 'Rujul Nayak',
