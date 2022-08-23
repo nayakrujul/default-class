@@ -32,9 +32,29 @@ Output:
 Foo(a=1, b='a', c=True)
 ```
 
+### default_class.Comparisons
+
+```python
+from default_class import StrAndRepr, Comparisons
+
+class String(StrAndRepr, Comparisons):
+    def __init__(self, s):
+        self.s = s
+    def __eq__(self, x):
+        return self.s == x
+    def __lt__(self, x):
+        return self.s in x
+
+obj = String('abc')
+print(obj <= 'bc') # False
+print(obj > 'abcd') # False
+print(obj >= 'bc') # True
+print(obj != 'abcd') # True
+```
+
 ### default_class.Numeric
 
-**The `Numeric` class in the `default_class` library uses arithmatic rules to define magic methods.**
+The `Numeric` class in the `default_class` library uses arithmatic rules to define magic methods.
 
 See this example:
 
@@ -97,12 +117,30 @@ Number(n=123)
 Number(n=-123)
 ```
 
-**The `Numeric` class can fill in these magic methods:**
+## Magic methods filled in
+
+**StrAndRepr methods have no dependencies**
+
+|Method|
+|-|
+|`__str__`|
+|`__repr__`|
+
+**Comparison methods have two sets of dependencies: either can be used**
+
+|Method|Option 1|Option 2|
+|-|-|-|
+|`__eq__`|`__ne__`|`__gt__`, `__lt__`|
+|`__ne__`|`__eq__`|`__gt__`, `__lt__`|
+|`__gt__`|`__le__`|`__ge__`, `__eq__`|
+|`__ge__`|`__lt__`|`__gt__`, `__eq__`|
+|`__lt__`|`__ge__`|`__le__`, `__eq__`|
+|`__le__`|`__gt__`|`__lt__`, `__eq__`|
+
+**Numeric methods have one set of dependencies**
 
 |Method|Dependencies|
 |-|-|
-|`__str__`|None|
-|`__repr__`|`__str__`|
 |`__add__`|`__sub__`, `__neg__`|
 |`__radd__`|`__add__`|
 |`__sub__`|`__neg__`, `__rsub__`|
@@ -121,4 +159,4 @@ Number(n=-123)
 
 **Warning: if not enough methods are filled in already, this could result in a `RecursionError`**
 
-Note: `Numeric` inherits `__str__` and `__repr__` from `default_class.StrAndRepr`
+Note: `Numeric` inherits from both `StrAndRepr` and `Comparisons`
