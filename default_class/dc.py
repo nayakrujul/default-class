@@ -8,8 +8,40 @@ class StrAndRepr:
         return ret + ')'
     def __repr__(self):
         return str(self)
+    
+class Comparisons:
+    def __eq__(self, x):
+        try:
+            return not self != x
+        except:
+            return not (self < x or self > x)
+    def __ne__(self, x):
+        try:
+            return not self == x
+        except:
+            return self < x or self > x
+    def __gt__(self, x):
+        try:
+            return not self <= x
+        except:
+            return self >= x and not self == x
+    def __ge__(self, x):
+        try:
+            return not self < x
+        except:
+            return self > x or self == x
+    def __lt__(self, x):
+        try:
+            return not self >= x
+        except:
+            return self <= x and not self == x
+    def __le__(self, x):
+        try:
+            return not self > x
+        except:
+            return self < x or self == x
 
-class Numeric(StrAndRepr):
+class Numeric(StrAndRepr, Comparisons):
     def __add__(self, x):
         return self - (-x)
     def __radd__(self, x):
